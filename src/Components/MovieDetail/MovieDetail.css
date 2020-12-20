@@ -1,0 +1,21 @@
+.movieDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.movieDetail__img {
+  flex: 0.5;
+}
+.movieDetail__img > img {
+  object-fit: contain;
+  /* width: 100%; */
+}
+
+.movieDetails {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
