@@ -6,26 +6,16 @@ import "./Home.css";
 function Home() {
   const Api_key = "2f78ff5fecdd4f911f60f8749170b289";
   const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(
-        `/trending/all/week?api_key=${Api_key}&language=en-US`
-      );
-      setMovies(request.data.results);
-      console.log(movies);
-      return request;
-    }
-    fetchData();
-  }, []);
+  useEffect(async () => {
+    const request = await fetch(
+      `https://api.themoviedb.org/3/trending/all/week?api_key=${Api_key}&language=en-US`
+    );
+    const data = await request.json();
 
-  // useEffect(() => {
-  //   fetch(
-  //     `https://api.themoviedb.org/3/trending/all/week?api_key=${Api_key}&language=en-US`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setMovies(data));
-  //   console.log(movies);
-  // }, []);
+    setMovies(data.results);
+
+    return data;
+  }, []);
 
   return (
     <div className="home">
@@ -52,5 +42,3 @@ function Home() {
 }
 
 export default Home;
-
-// https://blooming-garden-44897.herokuapp.com/jobs

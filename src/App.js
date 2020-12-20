@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-// import Admin from "./Components/Admin/Admin";
-// import AdminEvents from "./Components/AdminEvents/AdminEvents";
-// import Events from "./Components/Events/Events";
+
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import MovieDetail from "./Components/MovieDetail/MovieDetail";
@@ -13,8 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import { auth } from "./Components/firebase";
 import PrivateRoute from "./Components/PrivateRoute";
-// import PrivateRoute from "./Components/PrivateRoute";
-// import Register from "./Components/Register/Register";
+import MyBookings from "./Components/MyBookings/MyBookings";
 
 function App() {
   const user = useSelector(selectUser);
@@ -42,6 +39,9 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
+          <Route path="/myBookings">
+            <MyBookings />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -65,24 +65,3 @@ function App() {
 }
 
 export default App;
-// <Route path="/login">
-//             <Login />
-//           </Route>
-//           <Route path="/events">
-//             <Header />
-//             <Events />
-//           </Route>
-//           <Route path="/admin">
-//             <Admin />
-//           </Route>
-//           <Route path="/adminEvents">
-//             <AdminEvents />
-//           </Route>
-
-//           <PrivateRoute path="/register">
-//             <Register />
-//           </PrivateRoute>
-
-// <PrivateRoute path="/register">
-//             <Register />
-//           </PrivateRoute>

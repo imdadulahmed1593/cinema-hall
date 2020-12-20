@@ -1,10 +1,9 @@
 import axios from "axios";
 
-
-
-/* base URL to make requests to the movies database */
 const instance = axios.create({
-    baseURL: "https://api.themoviedb.org/3",
+  baseURL: "https://fathomless-crag-55421.herokuapp.com", //the api (cloud function) url
 });
 
 export default instance;
+// "http://localhost:8080"
+// "https://fathomless-crag-55421.herokuapp.com"
